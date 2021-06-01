@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Searching Menu</title>
+</head>
+<style>
+body{
+	text-align: center;
+	background-image: url(color.jpg);
+	background-size: cover;
+}
+.row {
+  	display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.col-lg-3,
+.col-md-4,
+.col-sm-6, 
+.col-12 {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.img-fluid {
+    height: 200px;
+    width: 400px;
+}
+.tm-gallery-page {
+    max-width: 280px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.tm-gallery-title {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #1A6692;
+    margin-bottom: 15px;
+}
+
+.tm-gallery-description {
+    margin-bottom: 20px;
+}
+
+.tm-gallery-price {
+    font-size: 1.25rem;
+    color: #2F956D;
+    margin-bottom: 30px;
+}
+.highlight{
+	background-color: yellow;
+}
+input{
+	width: 400px;
+}
+ul,li{
+	text-align: left;
+}
+</style>
+
+<body>
+	<h1>PILIH DESTINASI WISATA</h1>
+	<input type="text" placeholder="Search" id="searchinput">
+	<button id="SearchButton">search</button><br><br>
+
+	<div class="row tm-gallery" id="conten">
+		<div id="conten" class="tm-gallery-page">
+			<article class="col-lg-3 col-md-4 col-sm-6 col-12">
+				<figure>
+					<img src="1.jpg" alt="Image" class="img-fluid " />
+						<figcaption>
+							<h4 class="tm-gallery-title">PAKET 1</h4>
+							<p>4 Hari 3 Malam
+							<ul>
+								<li>Pura Ulundanu</li>
+								<li>Danau Beratan</li>
+								<li>Pusat Oleh-Oleh Joger</li>
+								<li>Pura Tanah Lot</li>
+								<li>Rofa Kuta Hotel</li>
+							</ul>
+							</p>
+							<p class="tm-gallery-price">Rp. 2.900.000</p>
+							<a href="" target="_blank"><button>Pesan Sekarang</button></a>
+						</figcaption> 
+					</figure>
+			</article>
+				<article class="col-lg-3 col-md-4 col-sm-6 col-12 ">
+					<figure>
+						<img src="2.jpg" alt="Image" class="img-fluid " />
+						<figcaption>
+							<h4 class="tm-gallery-title">PAKET 2</h4>
+							<p>4 Hari 3 Malam
+							<ul>
+								<li>Tanjung Benoa</li>
+								<li>Pandawa Beach</li>
+								<li>Garuda Wisnu Kencana</li>
+								<li>Pura Uluwatu</li>
+								<li>The Tusita Hotel</li>
+							</ul>
+							</p>
+							<p class="tm-gallery-price">Rp. 1.835.000</p>
+							<a href="" target="_blank"><button>Pesan Sekarang</button></a>
+						</figcaption>
+					</figure>
+			</article>
+				<article class="col-lg-3 col-md-4 col-sm-6 col-12 ">
+					<figure>
+						<img src="3.jpg" alt="Image" class="img-fluid " />
+						<figcaption>
+							<h4 class="tm-gallery-title">PAKET 3</h4>
+							<p>3 Hari 2 Malam
+							<ul>
+								<li>Alas Kedaton</li>
+								<li>Tanah Lot</li>
+								<li>Restoran Shinta</li>
+								<li>Pusat Oleh-Oleh Agung Bali</li>
+								<li>The Tusita Hotel</li>
+							</ul>
+							</p>
+							<p class="tm-gallery-price">Rp. 1.200.000</p>
+							<a href="" target="_blank"><button>Pesan Sekarang</button></a>
+						</figcaption>
+					</figure>
+				</article>
+			</div>
+		</div>
+</body>
+<script>
+	function highlight(element, string, Search, originalString) {
+		if (Search.length >  0) {
+			let regex = new RegExp(Search, "g");
+			newString = string.replace(regex, "<span class='highlight'> " + Search + "</span")
+
+			element.innerHTML = newString;
+		}else {
+			element.innerHTML = originalString;
+		}
+	}
+	
+	const conten = document.getElementById('conten');
+	const searchinput = document.getElementById('searchinput');
+	const SearchButton = document.getElementById('SearchButton');
+
+	let originalConten = conten.innerText
+
+	SearchButton.addEventListener("click", function(){
+		if(searchinput.value.toUpperCase() == 'PAKET 1'){
+			window.scrollTo(30,30);
+		}else if(searchinput.value.toUpperCase() == 'PAKET 2'){
+			window.scrollTo(400,600);
+		}else{
+			window.scrollTo(1000,1400);
+		}
+		highlight(conten, conten.innerHTML, searchinput.value.toUpperCase(), originalConten)
+	});
+</script>
+</html>
