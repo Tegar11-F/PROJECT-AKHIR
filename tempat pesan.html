@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		.container{
+			border: 5px;
+			padding: 10px;
+			background-image: url(background.jpg);
+			background-size: cover;
+			color:#fff;
+			height: 620px;
+		}
+
+		h2{
+			text-align: center;
+
+		}
+
+		table{
+			background: blueocean;
+			margin:20px;
+			width: 650px;
+			height: 300px;
+		}
+		
+		td{
+			padding: 10px;
+		}
+
+		h2{
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h2>FORM PEMESANAN PAKET LIBURAN</h2>
+		<table border="1">
+			<tr>
+				<th>No </th>
+				<th>Paket Wisata</th>
+				<th>Harga</th>
+				<th>Jumlah</th>
+			</tr>
+
+			<tr>
+				<th>1</th>
+				<th>Paket 1</th>
+				<th>Rp.<input type="text" name="harga" id="paket1" size="7" value="2900000" readonly></th>
+				<th><input type="number" name="jumlah_paket1" id="harga_paket1" size="7" value="0" onchange="total()">Orang</th>
+			</tr>
+
+			<tr>
+				<th>2</th>
+				<th>Paket 2</th>
+				<th>Rp.<input type="text" name="harga" id="paket2" size="7" value="1835000" readonly></th>
+				<th><input type="number" name="jumlah_paket2" id="harga_paket2" size="7" value="0" onchange="total()">Orang</th>
+			</tr>
+
+			<tr>
+				<th>3</th>
+				<th>Paket 3</th>
+				<th>Rp.<input type="text" name="harga" id="paket3" size="7" value="1200000" readonly></th>
+				<th><input type="number" name="jumlah_paket3" id="harga_paket3" size="7" value="0" onchange="total()">Orang</th>
+			</tr>
+
+			<tr>
+				
+				<th colspan="3" style="text-align: center;">Jumlah Total</th>
+				<th>Rp.<input type="text" name="total_jumlah" id="total" size="30" value="" readonly></th>
+			</tr>
+		</table>
+		<br>
+		<input type="button" onclick="window.print()" value="cetak"><br>
+		<p style="text-align: center; font-size: 30px;">Terima Kasih Telah Menggunakan Jasa Layanan Kami!</p>
+
+		<script type="text/javascript">
+		function total() {
+		var vpaket1 = 2900000 * parseInt(document.getElementById('harga_paket1').value);
+		var vpaket2 = 1835000 * parseInt(document.getElementById('harga_paket2').value);
+		var vpaket3 = 1200000 * parseInt(document.getElementById('harga_paket3').value);
+
+		var jumlah_harga = vpaket1 + vpaket2 + vpaket3;
+
+		document.getElementById('total').value = jumlah_harga;
+		}
+		
+		</script>
+	</div>
+</body>
+</html>
